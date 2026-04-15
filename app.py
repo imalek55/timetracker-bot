@@ -16,8 +16,10 @@ handler = SlackRequestHandler(app)
 # ─── إعداد Google Sheets ──────────────────────────────────────
 def get_sheet():
     creds_json = json.loads(os.environ["GOOGLE_CREDENTIALS"])
-    scopes = ["https://www.googleapis.com/auth/spreadsheets"]
-    creds = Credentials.from_service_account_info(creds_json, scopes=scopes)
+scopes = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive"
+]    creds = Credentials.from_service_account_info(creds_json, scopes=scopes)
     client = gspread.authorize(creds)
     spreadsheet = client.open(os.environ["SHEET_NAME"])
     return spreadsheet
