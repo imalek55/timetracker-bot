@@ -54,7 +54,7 @@ def handle_start(ack, respond, command, client):
 # ─── /stop ────────────────────────────────────────────────────
 @app.command("/stop")
 def handle_stop(ack, respond, command):
-    ack()
+    ack("⏳ جاري الحفظ...")
     user_id = command["user_id"]
     now = datetime.now()
 
@@ -81,7 +81,7 @@ def handle_stop(ack, respond, command):
 # ─── /report ──────────────────────────────────────────────────
 @app.command("/report")
 def handle_report(ack, respond, command):
-    ack()
+    ack("⏳ جاري تجهيز التقرير...")
     user_id = command["user_id"]
     period = command["text"].strip().lower()  # "week" أو "month" أو فراغ
 
