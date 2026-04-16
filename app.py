@@ -27,7 +27,7 @@ scopes = [
 # ─── /start ───────────────────────────────────────────────────
 @app.command("/start")
 def handle_start(ack, respond, command, client):
-    ack()
+    ack("⏳ جاري التسجيل...")
     project = command["text"].strip()
     if not project:
         respond("❌ لازم تكتب اسم المشروع. مثال: `/start تطوير-الموقع`")
